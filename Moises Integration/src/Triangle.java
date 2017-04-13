@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Triangle {
@@ -7,11 +8,31 @@ public class Triangle {
   private double hypotenuse;
   
   public void setSideOne(Scanner input) {
-    sideOne = input.nextInt();
+    try {
+      sideOne = input.nextInt();
+    } catch (InputMismatchException e) {
+      System.out.println("You did not enter a number. Defaulting to 3.");
+      sideOne = 3;
+      input.next();
+    } catch (Exception e) {
+      System.out.println("You did not enter a number. Defaulting to 3.");
+      sideOne = 3;
+      input.next();
+    }
   }
   
   public void setSideTwo(Scanner input) {
-    sideTwo = input.nextInt();
+    try {
+      sideTwo = input.nextInt();
+    } catch (InputMismatchException e) {
+      System.out.println("You did not enter a number. Defaulting to 3.");
+      sideTwo = 4;
+      input.next();
+    } catch (Exception e) {
+      System.out.println("You did not enter a number. Defaulting to 3.");
+      sideTwo = 4;
+      input.next();
+    }
   }
   
   public double getSideOne() {

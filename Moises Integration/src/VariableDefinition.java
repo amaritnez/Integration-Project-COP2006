@@ -1,3 +1,4 @@
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class VariableDefinition {
@@ -29,8 +30,16 @@ public class VariableDefinition {
   public static void explanation(Scanner input) {
     int dataChoice = 1;
     while (dataChoice != 0) {
-      System.out.println("Enter a number next to a variable to learn more about it. Type 0 to leave.");
-      dataChoice = input.nextInt();
+      System.out.println("Enter a number next to a variable to learn more about it. Enter something else"
+          + " to leave.");
+      try {
+        dataChoice = input.nextInt();
+      } catch (InputMismatchException e) {
+        dataChoice = 0;
+      } catch (Exception e) {
+        dataChoice = 0;
+      }
+      //dataChoice = input.nextInt();
       switch (dataChoice) {
         
         case 1:
@@ -74,11 +83,9 @@ public class VariableDefinition {
           System.out.println("Strings are often used to store words. More technically, Strings"
               + " store strings of characters (hence the name).");
           
-        case 0:
-          break;
-          
         default:
-          System.out.println("You entered something that isn't here. So....no definition for you!");
+          System.out.println("Exiting Definitions");
+          dataChoice = 0;
           break;
       }
     }

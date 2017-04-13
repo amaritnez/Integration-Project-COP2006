@@ -76,11 +76,11 @@ public class Main {
           System.out.println("Wait, that doesn't seem right.");
 
           Numerator.setStatementOne("Ugh, not this again.");
-          Numerator.setStatementTwo("ENTER 4!!!!");
+          Numerator.setStatementTwo("Just do what I say!");
           numerator = Numerator.getNumberTest(input);
 
           Denominator.setStatementOne("Why do you not listen!.");
-          Denominator.setStatementTwo("ENTER 3!!!");
+          Denominator.setStatementTwo("Do what I'm telling you to do!");
           denominator = Denominator.getNumberTest(input);
 
           System.out.println("Ok. " + numerator + " divided by " + denominator + " is " + fraction);
@@ -88,7 +88,7 @@ public class Main {
           System.out.println("Oh. wait, I know why. Ok, it's going to work this time.");
 
           Numerator.setStatementOne("Just stop, please. It's not funny anymore.");
-          Numerator.setStatementTwo("Enter 4.");
+          Numerator.setStatementTwo("You know what to do.");
           numerator = Numerator.getNumberTest(input);
 
           Denominator.setStatementOne("I know you're not entering 3.");
