@@ -17,6 +17,7 @@ public class Main {
 	  System.out.println("4. Variable Definitions");
 	  System.out.println("5. Pythagorean Theorem");
 	  System.out.println("6. Simple Table Generator");
+	  System.out.println("7. Hangman");
 	  
 	  Scanner input = new Scanner(System.in);
 	  
@@ -144,6 +145,11 @@ public class Main {
           System.out.println("The smallest value of the table is " + ArrayTable.getSmallestValue());
           ArrayTable.findSpecificValue();
           break;
+          
+        case 7:
+          
+          
+          
 
         default:
           System.out.println("Whoa, why is this being shown? You must of entered something wrong. Try again.");
