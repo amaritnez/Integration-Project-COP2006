@@ -22,6 +22,8 @@ public class Main {
 	  System.out.println("5. Pythagorean Theorem");
 	  System.out.println("6. Simple Table Generator");
 	  System.out.println("7. Robot Speaker");
+	  System.out.println("8. Slightly Less-Simple Table Generator");
+	  System.out.println("9.");
 	  
 	  Scanner input = new Scanner(System.in);
 	  
@@ -181,6 +183,16 @@ public class Main {
           }
           break;
           
+        case 8:
+          ArrayTableTwo.createTableValues();
+          ArrayTableTwo.showTable();
+          ArrayTableTwo.findSpecificValue();
+          break;
+          
+          
+        case 9:
+          break;
+          
 
         default:
           System.out.println("Whoa, why is this being shown? You must of entered something wrong. Try again.");
@@ -199,3 +211,16 @@ public class Main {
 //-A relational operator relates two things to one another (greater than, less than, equal to, etc.)
 //If you've made it this far into the program (i.e. the end) and you still need a demonstration of
 //these operators, we've got a problem.
+
+/*
+Because I'm pressed for time and can't explain it with an actual program:
+-Inheritance is when a certain class can take on the methods, fields, and other "stuff" of another class.
+The class that is providing the "stuff" is called the superclass, and the class that is "inheriting"
+all the stuff is called the subclass.
+-In object-oriented programming, Polymorphism refers to subclasses defining some of their own unique behaviors, 
+whilst still inheriting the functionality of the parent class. An example of this is a subclass overriding a
+method from its parent class.
+-Examples and demonstrations of both inheritance and Polymorphism can be found in the "ArrayTableTwo" class,
+where "ArrayTableTwo" is a subclass of "ArrayTable", and overrides various methods from "ArrayTable" (such
+as the "createTableValues" and "showTable" methods).
+*/

@@ -57,7 +57,7 @@ public class ArrayTable {
     boolean match;
     int countM = 0;
     do {
-      match = tableValueChoice == tableValues[countM];
+      match = (tableValueChoice == tableValues[countM]);
       countM++;
     } while (match == false && countM < 5);
     if (match == true) {
