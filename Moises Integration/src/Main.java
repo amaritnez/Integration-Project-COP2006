@@ -23,7 +23,7 @@ public class Main {
 	  System.out.println("6. Simple Table Generator");
 	  System.out.println("7. Robot Speaker");
 	  System.out.println("8. Slightly Less-Simple Table Generator");
-	  System.out.println("9.");
+	  System.out.println("9. Word Manipulator");
 	  
 	  Scanner input = new Scanner(System.in);
 	  
@@ -121,8 +121,8 @@ public class Main {
           System.out.println("6. float");
           System.out.println("7. boolean");
           System.out.println("8. char");
-          System.out.println(
-              "9. There's also Strings. Strings aren't a primitive data type, but they" + " act very similar to one.");
+          System.out.println("9. There's also Strings. Strings aren't a primitive data type, but they" 
+          + " act very similar to one.");
           VariableDefinition.explanation(input);
           break;
 
@@ -191,6 +191,19 @@ public class Main {
           
           
         case 9:
+          //System.out.println("test");
+          System.out.println("Start with the word \"word\".");
+          WordEditor.reverseWord();
+          System.out.println("Reverse it.");
+          WordEditor.letterRemove(2);
+          System.out.println("Remove a letter.");
+          WordEditor.letterAdd(2, 'a');
+          System.out.println("Add another letter.");
+          System.out.println("And....tada! We get " + "\"" + WordEditor.showWord() + "\"!");
+          //fun fact: I did not expect to spell the word "draw". I was just doing random
+          //last-minute string-manipulating methods. When I saw that I spelled "draw", I was beyond happy
+          //and decided to leave it there; make the user think that I meant to spell an entirely
+          //new word. But if you're reading this, then you know the truth!
           break;
           
 
