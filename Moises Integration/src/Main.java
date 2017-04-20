@@ -7,6 +7,9 @@ import java.util.Scanner;
 
 public class Main {
 
+	/**
+	 * @param args Command line arguement
+	 */
 	public static void main(String[] args) {
 
 	  System.out.println("Hello, person! Type a number next to a program to activate that program.");
@@ -147,8 +150,36 @@ public class Main {
           break;
           
         case 7:
+          System.out.println("Welcome to hangman! The goal of the game is to try and correctly "
+              + "guess the word before you run out of tries. Correctly spell out the "
+              + "word and you win!");
+          System.out.println("Please choose a difficulty.");
+          int difficultyChoice = 0;
+          boolean error = false;
+          do {
+            try {
+              difficultyChoice = Integer.parseInt(input.next());
+              error = false;
+            } catch (NumberFormatException e) {
+              System.out.println("You entered something wierd. Try again.");
+              error = true;
+            } catch (Exception e) {
+              System.out.println("Something wierd happened. Try again.");
+              error = true;
+            }
+          } while (error == true);
           
-          
+          switch (difficultyChoice) {
+            
+            case 1:
+              System.out.println("test success");
+              CasualD Word = new CasualD(1);
+              System.out.println(Word.getWord());
+              //System.out.println(Word.getWord());
+              //System.out.println(Word.getGuessLine());
+              break;
+          }
+          break;
           
 
         default:
