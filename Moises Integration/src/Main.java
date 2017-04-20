@@ -3,6 +3,7 @@
 //description: Integration Project
 //- A random mix-match of code following techniques that I've learned
 //in class to demonstrate my (lack of) skills /s
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class Main {
@@ -20,7 +21,7 @@ public class Main {
 	  System.out.println("4. Variable Definitions");
 	  System.out.println("5. Pythagorean Theorem");
 	  System.out.println("6. Simple Table Generator");
-	  System.out.println("7. Hangman");
+	  System.out.println("7. Robot Speaker");
 	  
 	  Scanner input = new Scanner(System.in);
 	  
@@ -150,34 +151,33 @@ public class Main {
           break;
           
         case 7:
-          System.out.println("Welcome to hangman! The goal of the game is to try and correctly "
-              + "guess the word before you run out of tries. Correctly spell out the "
-              + "word and you win!");
-          System.out.println("Please choose a difficulty.");
-          int difficultyChoice = 0;
-          boolean error = false;
+          System.out.println("Talk like a robot! Enter a number to add that word "
+              + "to your sentence. When done, type \"-1 \".");
+          System.out.println("0. Beep");
+          System.out.println("1. Boop");
+          System.out.println("2. Bop");
+          System.out.println("3. Bep");
+          System.out.println("4. Be");
+          System.out.println("5. Boo");
+          System.out.println("6. Ba");
+          System.out.println("Enter something else and watch your robot panic!");
+          int robotWord = 10;
           do {
             try {
-              difficultyChoice = Integer.parseInt(input.next());
-              error = false;
-            } catch (NumberFormatException e) {
-              System.out.println("You entered something wierd. Try again.");
-              error = true;
+              robotWord = Integer.parseInt(input.next());
+              RobotSpeek.createSentence(robotWord);
             } catch (Exception e) {
-              System.out.println("Something wierd happened. Try again.");
-              error = true;
+              RobotSpeek.addError();
+              robotWord = 7;
             }
-          } while (error == true);
-          
-          switch (difficultyChoice) {
-            
-            case 1:
-              System.out.println("test success");
-              CasualD Word = new CasualD(1);
-              System.out.println(Word.getWord());
-              //System.out.println(Word.getWord());
-              //System.out.println(Word.getGuessLine());
-              break;
+          } while (robotWord != -1);
+          boolean empty = false;
+          while (empty == false) {
+            try {
+              System.out.print(RobotSpeek.printWord() + " ");
+            } catch (NoSuchElementException e) {
+              empty = true;
+            }
           }
           break;
           
