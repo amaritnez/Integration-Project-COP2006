@@ -25,11 +25,11 @@ public class Triangle {
     try {
       sideTwo = input.nextInt();
     } catch (InputMismatchException e) {
-      System.out.println("You did not enter a number. Defaulting to 3.");
+      System.out.println("You did not enter a number. Defaulting to 4.");
       sideTwo = 4;
       input.next();
     } catch (Exception e) {
-      System.out.println("You did not enter a number. Defaulting to 3.");
+      System.out.println("You did not enter a number. Defaulting to 4.");
       sideTwo = 4;
       input.next();
     }

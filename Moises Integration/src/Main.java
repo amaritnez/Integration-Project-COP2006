@@ -3,6 +3,7 @@
 //description: Integration Project
 //- A random mix-match of code following techniques that I've learned
 //in class to demonstrate my (lack of) skills /s
+import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class Main {
@@ -20,7 +21,9 @@ public class Main {
 	  System.out.println("4. Variable Definitions");
 	  System.out.println("5. Pythagorean Theorem");
 	  System.out.println("6. Simple Table Generator");
-	  System.out.println("7. Hangman");
+	  System.out.println("7. Robot Speaker");
+	  System.out.println("8. Slightly Less-Simple Table Generator");
+	  System.out.println("9. Word Manipulator");
 	  
 	  Scanner input = new Scanner(System.in);
 	  
@@ -75,7 +78,14 @@ public class Main {
           int denominator = Denominator.getNumberTest(input);
 
           System.out.format("Why you wasted your time entering numbers:\n");
-          double fraction = numerator / denominator;
+          double fraction;
+          try {
+            fraction = numerator / denominator;
+          } catch (Exception e) {
+            //this is done in case something goes wrong, to prevent the user's
+            //experience from being ruined.
+            fraction = 1;
+          }
           System.out.println("" + numerator + " divided by " + denominator + " is " + fraction);
           System.out.println("Wait, that doesn't seem right.");
 
@@ -98,8 +108,12 @@ public class Main {
           Denominator.setStatementOne("I know you're not entering 3.");
           Denominator.setStatementTwo("Just do it, please...");
           denominator = Denominator.getNumberTest(input);
-
-          fraction = (double) numerator / denominator;
+          
+          try {
+            fraction = (double) numerator / denominator;
+          } catch (Exception e) {
+            fraction = 4/3;
+          }
           System.out.println("" + numerator + " divided by " + denominator + " is " + fraction);
           System.out.println("YES! IT WORKED!");
           System.out.println("Turns out dividing the two ints just kept giving us 1. Dumb computer...");
@@ -118,8 +132,8 @@ public class Main {
           System.out.println("6. float");
           System.out.println("7. boolean");
           System.out.println("8. char");
-          System.out.println(
-              "9. There's also Strings. Strings aren't a primitive data type, but they" + " act very similar to one.");
+          System.out.println("9. There's also Strings. Strings aren't a primitive data type, but they" 
+          + " act very similar to one.");
           VariableDefinition.explanation(input);
           break;
 
@@ -150,35 +164,57 @@ public class Main {
           break;
           
         case 7:
-          System.out.println("Welcome to hangman! The goal of the game is to try and correctly "
-              + "guess the word before you run out of tries. Correctly spell out the "
-              + "word and you win!");
-          System.out.println("Please choose a difficulty.");
-          int difficultyChoice = 0;
-          boolean error = false;
+          System.out.println("Talk like a robot! Enter a number to add that word "
+              + "to your sentence. When done, type \"-1 \".");
+          System.out.println("0. Beep");
+          System.out.println("1. Boop");
+          System.out.println("2. Bop");
+          System.out.println("3. Bep");
+          System.out.println("4. Be");
+          System.out.println("5. Boo");
+          System.out.println("6. Ba");
+          System.out.println("Enter something else and watch your robot panic!");
+          int robotWord = 10;
           do {
             try {
-              difficultyChoice = Integer.parseInt(input.next());
-              error = false;
-            } catch (NumberFormatException e) {
-              System.out.println("You entered something wierd. Try again.");
-              error = true;
+              robotWord = Integer.parseInt(input.next());
+              RobotSpeek.createSentence(robotWord);
             } catch (Exception e) {
-              System.out.println("Something wierd happened. Try again.");
-              error = true;
+              RobotSpeek.addError();
+              robotWord = 7;
             }
-          } while (error == true);
-          
-          switch (difficultyChoice) {
-            
-            case 1:
-              System.out.println("test success");
-              CasualD Word = new CasualD(1);
-              System.out.println(Word.getWord());
-              //System.out.println(Word.getWord());
-              //System.out.println(Word.getGuessLine());
-              break;
+          } while (robotWord != -1);
+          boolean empty = false;
+          while (empty == false) {
+            try {
+              System.out.print(RobotSpeek.printWord() + " ");
+            } catch (NoSuchElementException e) {
+              empty = true;
+            }
           }
+          break;
+          
+        case 8:
+          ArrayTableTwo.createTableValues();
+          ArrayTableTwo.showTable();
+          ArrayTableTwo.findSpecificValue();
+          break;
+          
+          
+        case 9:
+          //System.out.println("test");
+          System.out.println("Start with the word \"word\".");
+          WordEditor.reverseWord();
+          System.out.println("Reverse it.");
+          WordEditor.letterRemove(2);
+          System.out.println("Remove a letter.");
+          WordEditor.letterAdd(2, 'a');
+          System.out.println("Add another letter.");
+          System.out.println("And....tada! We get " + "\"" + WordEditor.showWord() + "\"!");
+          //fun fact: I did not expect to spell the word "draw". I was just doing random
+          //last-minute string-manipulating methods. When I saw that I spelled "draw", I was beyond happy
+          //and decided to leave it there; make the user think that I meant to spell an entirely
+          //new word. But if you're reading this, then you know the truth!
           break;
           
 
@@ -199,3 +235,16 @@ public class Main {
 //-A relational operator relates two things to one another (greater than, less than, equal to, etc.)
 //If you've made it this far into the program (i.e. the end) and you still need a demonstration of
 //these operators, we've got a problem.
+
+/*
+Because I'm pressed for time and can't explain it with an actual program:
+-Inheritance is when a certain class can take on the methods, fields, and other "stuff" of another class.
+The class that is providing the "stuff" is called the superclass, and the class that is "inheriting"
+all the stuff is called the subclass.
+-In object-oriented programming, Polymorphism refers to subclasses defining some of their own unique behaviors, 
+whilst still inheriting the functionality of the parent class. An example of this is a subclass overriding a
+method from its parent class.
+-Examples and demonstrations of both inheritance and Polymorphism can be found in the "ArrayTableTwo" class,
+where "ArrayTableTwo" is a subclass of "ArrayTable", and overrides various methods from "ArrayTable" (such
+as the "createTableValues" and "showTable" methods).
+*/

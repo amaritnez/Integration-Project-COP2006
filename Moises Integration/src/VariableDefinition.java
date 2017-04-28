@@ -35,6 +35,7 @@ public class VariableDefinition {
       try {
         dataChoice = input.nextInt();
       } catch (InputMismatchException e) {
+        input.next();
         dataChoice = 0;
       } catch (Exception e) {
         dataChoice = 0;
