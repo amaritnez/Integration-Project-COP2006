@@ -78,7 +78,14 @@ public class Main {
           int denominator = Denominator.getNumberTest(input);
 
           System.out.format("Why you wasted your time entering numbers:\n");
-          double fraction = numerator / denominator;
+          double fraction;
+          try {
+            fraction = numerator / denominator;
+          } catch (Exception e) {
+            //this is done in case something goes wrong, to prevent the user's
+            //experience from being ruined.
+            fraction = 1;
+          }
           System.out.println("" + numerator + " divided by " + denominator + " is " + fraction);
           System.out.println("Wait, that doesn't seem right.");
 
@@ -101,8 +108,12 @@ public class Main {
           Denominator.setStatementOne("I know you're not entering 3.");
           Denominator.setStatementTwo("Just do it, please...");
           denominator = Denominator.getNumberTest(input);
-
-          fraction = (double) numerator / denominator;
+          
+          try {
+            fraction = (double) numerator / denominator;
+          } catch (Exception e) {
+            fraction = 4/3;
+          }
           System.out.println("" + numerator + " divided by " + denominator + " is " + fraction);
           System.out.println("YES! IT WORKED!");
           System.out.println("Turns out dividing the two ints just kept giving us 1. Dumb computer...");
