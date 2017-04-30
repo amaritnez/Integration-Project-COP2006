@@ -33,7 +33,7 @@ public class WordEditor {
    * @return Returns the modified string
    */
   public static String showWord() {
-    String finalWord = Word.toString();
-    return finalWord;
+    String FinalWord = Word.toString();
+    return FinalWord;
   }
 }

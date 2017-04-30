@@ -8,28 +8,30 @@ import java.util.Scanner;
 
 public class Main {
 
-	/**
-	 * @param args Command line arguement
-	 */
-	public static void main(String[] args) {
+  /**The main method; first method to be called.
+   * 
+   * 
+   * @param args Command line arguement
+   */
+  public static void main(String[] args) {
 
-	  System.out.println("Hello, person! Type a number next to a program to activate that program.");
-	  System.out.println("We currently have the following programs:");
+    System.out.println("Hello, person! Type a number next to a program to activate that program.");
+    System.out.println("We currently have the following programs:");
     System.out.println("1. Hello World Program");
-	  System.out.println("2. Random Number Guessing Game");
-	  System.out.println("3. Integer Division");
-	  System.out.println("4. Variable Definitions");
-	  System.out.println("5. Pythagorean Theorem");
-	  System.out.println("6. Simple Table Generator");
-	  System.out.println("7. Robot Speaker");
-	  System.out.println("8. Slightly Less-Simple Table Generator");
-	  System.out.println("9. Word Manipulator");
-	  
-	  Scanner input = new Scanner(System.in);
-	  
-	  int choice = 0;
-	  boolean goodChoice = true;
-	  
+    System.out.println("2. Random Number Guessing Game");
+    System.out.println("3. Integer Division");
+    System.out.println("4. Variable Definitions");
+    System.out.println("5. Pythagorean Theorem");
+    System.out.println("6. Simple Table Generator");
+    System.out.println("7. Robot Speaker");
+    System.out.println("8. Slightly Less-Simple Table Generator");
+    System.out.println("9. Word Manipulator");
+
+    Scanner input = new Scanner(System.in);
+
+    int choice = 0;
+    boolean goodChoice = true;
+
     do {
 
       try {
@@ -37,9 +39,9 @@ public class Main {
         choice = Integer.parseInt(input.next());
 
       } catch (NumberFormatException e) {
-        
+
         choice = -2;
-      
+
       } catch (Exception e) {
         choice = -2;
       }
@@ -53,7 +55,8 @@ public class Main {
           break;
 
         case 2:
-          System.out.println("Test your luck! Enter a number between 0 and 10, with one decimal point.");
+          System.out.println("Test your luck! Enter a number between 0 and 10,"
+              + " with one decimal point.");
           double random = Rng.getComplexRandomNumber();
           double guess = 0;
 
@@ -71,10 +74,12 @@ public class Main {
           break;
 
         case 3:
-          IntDivision Numerator = new IntDivision(4, "I said enter 4!!!", "Try again. Please listen this time.");
+          IntDivision Numerator = new IntDivision(4, "I said enter 4!!!", 
+              "Try again. Please listen this time.");
           int numerator = Numerator.getNumberTest(input);
 
-          IntDivision Denominator = new IntDivision(3, "I said enter 3!!!", "Try again. Please listen this time.");
+          IntDivision Denominator = new IntDivision(3, "I said enter 3!!!",
+              "Try again. Please listen this time.");
           int denominator = Denominator.getNumberTest(input);
 
           System.out.format("Why you wasted your time entering numbers:\n");
@@ -105,7 +110,8 @@ public class Main {
           fraction = (double) numerator / denominator;
           System.out.println("" + numerator + " divided by " + denominator + " is " + fraction);
           System.out.println("YES! IT WORKED!");
-          System.out.println("Turns out dividing the two ints just kept giving us 1. Dumb computer...");
+          System.out.println("Turns out dividing the two ints just kept giving us 1."
+              + " Dumb computer...");
           System.out.println("...oh wait, that's me.");
           break;
 
@@ -121,22 +127,24 @@ public class Main {
           System.out.println("6. float");
           System.out.println("7. boolean");
           System.out.println("8. char");
-          System.out.println("9. There's also Strings. Strings aren't a primitive data type, but they" 
-          + " act very similar to one.");
+          System.out.println("9. There's also Strings. Strings aren't a primitive data type,"
+              + " but they act very similar to one.");
           VariableDefinition.explanation(input);
           break;
 
         case 5:
           Triangle userTriangle = new Triangle();
 
-          System.out.println("Enter the length of a side of a right triangle (can't be the hypotenuse).");
+          System.out.println("Enter the length of a side of a right"
+              + " triangle (can't be the hypotenuse).");
           userTriangle.setSideOne(input);
 
           System.out.println("Enter the length of the other side (still can't be the hypotenuse).");
           userTriangle.setSideTwo(input);
 
           if (userTriangle.getHypotenuse() - Math.floor(userTriangle.getHypotenuse()) != 0) {
-            System.out.printf("The hypotenuse of the triangle is about %.2f", userTriangle.getHypotenuse());
+            System.out.printf("The hypotenuse of the triangle is about %.2f",
+                userTriangle.getHypotenuse());
           } else {
             System.out.println("The hypotenuse of the triangle is " + userTriangle.getHypotenuse());
           }
@@ -149,7 +157,7 @@ public class Main {
           System.out.println("The smallest value of the table is " + ArrayTable.getSmallestValue());
           ArrayTable.findSpecificValue();
           break;
-          
+
         case 7:
           System.out.println("Talk like a robot! Enter a number to add that word "
               + "to your sentence. When done, type \"-1 \".");
@@ -180,16 +188,15 @@ public class Main {
             }
           }
           break;
-          
+
         case 8:
           ArrayTableTwo.createTableValues();
           ArrayTableTwo.showTable();
           ArrayTableTwo.findSpecificValue();
           break;
-          
-          
+
         case 9:
-          //System.out.println("test");
+          // System.out.println("test");
           System.out.println("Start with the word \"word\".");
           WordEditor.reverseWord();
           System.out.println("Reverse it.");
@@ -198,40 +205,46 @@ public class Main {
           WordEditor.letterAdd(2, 'a');
           System.out.println("Add another letter.");
           System.out.println("And....tada! We get " + "\"" + WordEditor.showWord() + "\"!");
-          //fun fact: I did not expect to spell the word "draw". I was just doing random
-          //last-minute string-manipulating methods. When I saw that I spelled "draw", I was beyond happy
-          //and decided to leave it there; make the user think that I meant to spell an entirely
-          //new word. But if you're reading this, then you know the truth!
+          // fun fact: I did not expect to spell the word "draw". I was just
+          // doing random
+          // last-minute string-manipulating methods. When I saw that I spelled
+          // "draw", I was beyond happy
+          // and decided to leave it there; make the user think that I meant to
+          // spell an entirely
+          // new word. But if you're reading this, then you know the truth!
           break;
-          
 
         default:
-          System.out.println("Whoa, why is this being shown? You must of entered something wrong. Try again.");
+          System.out.println("Whoa, why is this being shown? You must of entered something wrong."
+              + " Try again.");
           goodChoice = false;
           break;
-
       }
     } while (goodChoice == false);
-
-	}
-	
+  }
 }
 
-//Because I'm too lazy to think of a program to explain these (yay spring break!):
-//-A conditional operator performs conditional actions (AND, OR) on boolean expressions
-//-A relational operator relates two things to one another (greater than, less than, equal to, etc.)
-//If you've made it this far into the program (i.e. the end) and you still need a demonstration of
-//these operators, we've got a problem.
+// Because I'm too lazy to think of a program to explain these (yay spring
+// break!):
+// -A conditional operator performs conditional actions (AND, OR) on boolean
+// expressions
+// -A relational operator relates two things to one another (greater than, less
+// than, equal to, etc.)
+// If you've made it this far into the program (i.e. the end) and you still need
+// a demonstration of
+// these operators, we've got a problem.
 
 /*
-Because I'm pressed for time and can't explain it with an actual program:
--Inheritance is when a certain class can take on the methods, fields, and other "stuff" of another class.
-The class that is providing the "stuff" is called the superclass, and the class that is "inheriting"
-all the stuff is called the subclass.
--In object-oriented programming, Polymorphism refers to subclasses defining some of their own unique behaviors, 
-whilst still inheriting the functionality of the parent class. An example of this is a subclass overriding a
-method from its parent class.
--Examples and demonstrations of both inheritance and Polymorphism can be found in the "ArrayTableTwo" class,
-where "ArrayTableTwo" is a subclass of "ArrayTable", and overrides various methods from "ArrayTable" (such
-as the "createTableValues" and "showTable" methods).
-*/
+ * Because I'm pressed for time and can't explain it with an actual program:
+ * -Inheritance is when a certain class can take on the methods, fields, and
+ * other "stuff" of another class. The class that is providing the "stuff" is
+ * called the superclass, and the class that is "inheriting" all the stuff is
+ * called the subclass. -In object-oriented programming, Polymorphism refers to
+ * subclasses defining some of their own unique behaviors, whilst still
+ * inheriting the functionality of the parent class. An example of this is a
+ * subclass overriding a method from its parent class. -Examples and
+ * demonstrations of both inheritance and Polymorphism can be found in the
+ * "ArrayTableTwo" class, where "ArrayTableTwo" is a subclass of "ArrayTable",
+ * and overrides various methods from "ArrayTable" (such as the
+ * "createTableValues" and "showTable" methods).
+ */
