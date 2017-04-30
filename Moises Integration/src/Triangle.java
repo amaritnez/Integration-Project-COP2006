@@ -1,22 +1,16 @@
 import java.util.Scanner;
 
-/**
- * Performs the pythagorean theorem based on user-input values.
- * 
+/**Performs the pythagorean theorem based on user-input values.
  * @author Moises
- *
  */
 public class Triangle {
 
   private double sideOne;
   private double sideTwo;
 
-  /**
-   * Sets the value of side one based on user-input. Defaults to 3 if something
+  /**Sets the value of side one based on user-input. Defaults to 3 if something
    * goes wrong.
-   * 
-   * @param input
-   *          Takes user input
+   * @param input Takes user input
    */
   public void setSideOne(Scanner input) {
     try {
@@ -28,12 +22,9 @@ public class Triangle {
     }
   }
 
-  /**
-   * Sets the value of side two based on user-input. Defaults to 4 if something
+  /**Sets the value of side two based on user-input. Defaults to 4 if something
    * goes wrong.
-   * 
-   * @param input
-   *          Takes user input
+   * @param input Takes user input
    */
   public void setSideTwo(Scanner input) {
     try {
@@ -53,9 +44,7 @@ public class Triangle {
     return sideTwo;
   }
 
-  /**
-   * Performs the pyhtagorean theorem to give a value of the hypotenuse.
-   * 
+  /** Performs the pyhtagorean theorem to give a value of the hypotenuse.
    * @return Returns the value of the hypotenuse
    */
   public double getHypotenuse() {

@@ -3,7 +3,6 @@ import java.util.Random;
 /**Uses random number generators to create a short
  * random number guessing game.
  * @author Moises
- *
  */
 public class Rng {
   
