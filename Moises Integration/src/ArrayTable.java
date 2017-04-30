@@ -3,7 +3,7 @@
  */
 public class ArrayTable {
 
-  static String[] tableHeader = { "Value  1", "Value  2", "Value  3", "Value  4", "Value  5" };
+  static String[] tableHeader = { "Value 1", "Value 2", "Value 3", "Value 4", "Value 5" };
 
   static int[] tableValues = new int[5];
 
@@ -27,9 +27,9 @@ public class ArrayTable {
 
     for (int k = 0; k < 5; k++) {
       if (tableValues[k] < 10) {
-        System.out.print(tableValues[k] + "              ");
+        System.out.print(tableValues[k] + "         ");
       } else {
-        System.out.print(tableValues[k] + "             ");
+        System.out.print(tableValues[k] + "        ");
       }
     }
     System.out.println();
@@ -66,7 +66,7 @@ public class ArrayTable {
   /**
    * Generates a random number, then searches the array to see if the generated
    * number is in the array. Reveals the location of the number if it's in the
-   * array.
+   * array, tells the user the number isn't in the table otherwise.
    * 
    */
   public static void findSpecificValue() {
@@ -79,10 +79,10 @@ public class ArrayTable {
       countM++;
     } while (match == false && countM < 5);
     if (match == true) {
-      System.out.println("The  number  " + tableValueChoice + " belongs  to  " 
+      System.out.println("The number " + tableValueChoice + " belongs to  " 
           + tableHeader[--countM]);
     } else {
-      System.out.println("The  number  " + tableValueChoice + " is not  in  the  table.");
+      System.out.println("The number " + tableValueChoice + " is not in the table.");
     }
   }
 }

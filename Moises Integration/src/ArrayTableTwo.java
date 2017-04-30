@@ -1,8 +1,16 @@
 
-public class ArrayTableTwo extends ArrayTable{
+/**Creates a table using a 2d array, then performs some various actions
+ * with it.
+ * @author Moises
+ *
+ */
+public class ArrayTableTwo extends ArrayTable {
   
   static int[][] multiTableValues = new int[5][5];
   
+  /**Uses a random number generator to create
+   * values for the 2d array.
+   */
   public static void createTableValues() {
     for (int i = 0; i < 5; i++) {
       for (int j = 0; j < 5; j++) {
@@ -11,9 +19,12 @@ public class ArrayTableTwo extends ArrayTable{
     }
   }
   
+  /**Shows the 2d array in its entirety (values included).
+   * 
+   */
   public static void showTable() {
     for (int k = 0; k < 5; k++) {
-        System.out.print(tableHeader[k] + ":  ");
+      System.out.print(tableHeader[k] + ":  ");
     }
     System.out.println();
     
@@ -22,8 +33,7 @@ public class ArrayTableTwo extends ArrayTable{
       for (int m = 0; m < 5; m++) {
         if (multiTableValues[l][m] < 10) {
           System.out.print(multiTableValues[l][m] + "         ");
-        }
-        else {
+        } else {
           System.out.print(multiTableValues[l][m] + "        ");
         }
       }
@@ -31,6 +41,10 @@ public class ArrayTableTwo extends ArrayTable{
     System.out.println();
   }
   
+  /**Uses a random number generator to provide a number to search for.
+   * Will reveal the first location of the number in the array, or display
+   * that the number isn't present otherwise.
+   */
   public static void findSpecificValue() {
     int tableValueChoice = Rng.getSimpleRandomNumber(100);
     //tableValueChoice = multiTableValues[3][0];
@@ -48,11 +62,10 @@ public class ArrayTableTwo extends ArrayTable{
       countM++;
     } while (match == false && countM < 25);
     if (match == true) {
-      //countY++;
-      System.out.println("The first occurence of " + tableValueChoice + " is under " + tableHeader[countX]
-          + " and is in the " + countY + " row.");
-    }
-    else {
+      // countY++;
+      System.out.println("The first occurence of " + tableValueChoice + " is under " 
+          + tableHeader[countX] + " and is in the " + countY + " row.");
+    } else {
       System.out.println("The number " + tableValueChoice + " is not in the table.");
     }
   }

@@ -65,8 +65,8 @@ public class VariableDefinition {
           break;
 
         case 4:
-          System.out.println("long  stores  integers  of  large  length  (too  large  to  type)."
-              + " Useful  if you're  working  with  really  large  numbers;  overkill  otherwise.");
+          System.out.println("long stores  integers  of  large  length  (too  large  to  type)."
+              + " Useful  if you're working  with  really  large  numbers;  overkill  otherwise.");
           break;
 
         case 5:
