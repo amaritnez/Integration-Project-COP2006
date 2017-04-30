@@ -135,8 +135,6 @@ public class Main {
           System.out.println("Enter the length of the other side (still can't be the hypotenuse).");
           userTriangle.setSideTwo(input);
 
-          userTriangle.setHypotenuse(userTriangle.getSideOne(), userTriangle.getSideTwo());
-
           if (userTriangle.getHypotenuse() - Math.floor(userTriangle.getHypotenuse()) != 0) {
             System.out.printf("The hypotenuse of the triangle is about %.2f", userTriangle.getHypotenuse());
           } else {
