@@ -1,5 +1,10 @@
 import java.util.Random;
 
+/**Uses random number generators to create a short
+ * random number guessing game.
+ * @author Moises
+ *
+ */
 public class Rng {
   
   /**.
@@ -12,7 +17,7 @@ public class Rng {
     return randomI;
   }
   
-  /**
+  /**.
    * @return returns the randomly chosen number
    */
   public static double getComplexRandomNumber() {
@@ -26,7 +31,7 @@ public class Rng {
     return randomD;
   }
   
-  /**
+  /**.
    * @param guess takes in the user's guess
    * @param randomD takes in the randomly generated number
    */
